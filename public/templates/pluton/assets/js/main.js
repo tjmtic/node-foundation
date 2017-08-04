@@ -43,6 +43,13 @@
 		// Scrolly.
 			$('.scrolly').scrolly();
 
+		// lazyView
+			$('.lazyFade').lazyView();
+			$('.lazyFadeList').lazyView();
+			$('.lazyFadeThree').lazyView();
+			$('.lazyFadeList2').lazyView();
+			$('.lazyFadeFinal').lazyView();
+
 	});
 
 })(jQuery);
