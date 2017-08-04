@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+var templates = require('./routes/templates');
 //Email with SendGrid Setup
 var EmailManager = require('./handler/sendgrid');
 
@@ -24,12 +24,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/public', express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'templates')));
+//app.use('/templates', express.static(path.join(__dirname, 'public/templates')))
 
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/public/templates', templates);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
